@@ -12,6 +12,11 @@ spring:
       discovery:
         locator:
           enabled: true
+    routes:
+      - id: sidecar-service
+        uri: lb://sidecar-service
+        predicates:
+          - Path=/sidecar-service/**
   zipkin:
     base-url: http://127.0.0.1:9411
     discovery-client-enabled: false
